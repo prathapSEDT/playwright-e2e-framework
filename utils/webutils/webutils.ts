@@ -149,7 +149,7 @@ console.error(error)
 return false
         }
     }
-}
+
 
  /*
 Author: Rakesh
@@ -158,3 +158,57 @@ Modified by:
 Modified Date:
 Purpose to modify:
 */
+
+
+    /*
+    Author: Manikanta Srinivas
+    Date: 22 May 2025
+    Modified by:
+    Modified Date:
+    Purpose to modify:
+
+    @method name: getCurrentDate
+    @purpose: This method can be used to find the current date  
+    
+    */ 
+
+    async getCurrentDate():Promise<string>{
+        try
+        {
+           const todaysDate = new Date();
+           return todaysDate.toString();
+        }
+        catch (error)
+        {
+            console.error("error fetching current date:",error);
+            throw error;
+        }
+    }
+
+    /*
+    Author: Manikanta Srinivas
+    Date: 22 May 2025
+    Modified by:
+    Modified Date:
+    Purpose to modify:
+
+    @method name: getCurrentTime
+    @purpose: This method can be used to find the current time  
+    
+    */     
+    
+    async getCurrentTime(): Promise<string>{
+        try
+        {
+            const presentTime = new Date();
+            return presentTime.toTimeString();
+        }
+        catch(error)
+        {
+            console.error("can't fetch the current time",error);
+            throw error;
+        }
+    }
+
+
+}
