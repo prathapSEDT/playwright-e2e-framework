@@ -87,7 +87,74 @@ async waitForWebElement(webElement : Locator, time : number =35000): Promise<boo
             } catch (error) {
 
                 return false}
-         
-        }
+            }
+        
 
-} 
+
+        /*
+Author: Rakesh
+Date: 22 May 2025
+Modified by:
+Modified Date:
+Purpose to modify:
+*/
+
+async getTextFromElement(element: any): Promise<any> {
+        try {
+            const text = await element.getTextFromElement();
+            console.log("Enter the text :", text);
+            return text;
+        } catch(error){
+console.error(error)
+return false
+}
+ }
+
+
+
+    async clickElementAndFill(elementProperty: any, elementName: any, txtToFill: any) {
+        try {
+            await elementProperty.click();
+            await elementProperty.setValue(txtToFill);
+            console.log(`Filled ${elementName} with: ${txtToFill}`);
+        } catch(error){
+console.error(error)
+return false
+        }
+    }
+
+    
+
+    
+    async selectDropDown(elementProperty: any, option: string) {
+        try {
+            await elementProperty.selectByVisibleText(option);
+            console.log(`Dropdown option selected: ${option}`);
+        } catch(error){
+console.error(error)
+return false
+        }
+    }
+
+
+
+    
+    async generateThreeDigitNumber(): Promise<any> {
+        try {
+            const randomNumber = Math.floor(Math.random() * 999) + 100;
+            console.log("Generated 3-digit number:", randomNumber);
+            return randomNumber;
+        } catch(error){
+console.error(error)
+return false
+        }
+    }
+}
+
+ /*
+Author: Rakesh
+Date: 22 May 2025
+Modified by:
+Modified Date:
+Purpose to modify:
+*/
