@@ -1,0 +1,69 @@
+{"register": {
+"type":"xpath",
+"property":"//a[text()='Register']"
+},
+"header_text_check":{
+"type":"xpath",
+"property":"//h1[text()='Register']"
+},
+"header_personaldetails_check":{
+"type":"xpath",
+"property":"//strong[text()='Your Personal Details']"
+},
+
+"click_radio_button_male":{
+"type":"xpath",
+"property":"//input[@id='gender-male']"
+},
+"click_radio_button_female":{
+"type":"xpath",
+"property":"//input[@id='gender-female']"
+},
+
+"fill_text_firstname":{
+"type":"xpath",
+"property":"//input[@id='FirstName']"
+},
+"fill_text_lastname":{
+"type":"xpath",
+"property":"//input[@id='LastName'] "
+},
+
+"fill_email":{
+"type":"xpath",
+"property":"//input[@id='Email']"
+},
+"check_text_company":{
+"type":"xpath",
+"property":"//strong[text()='Company Details']"
+},
+"fill_text_company":{
+"type":"xpath",
+"property":"[//input[@id='Company']"
+},
+
+"check_text_options":{
+"type":"xpath",
+"property":"//strong[text()='Options']"
+},
+"click_checkbox_newsletter":{
+"type":"xpath",
+"property":"//input[@id='Newsletter']"
+},
+ "check_text_password":{
+"type":"xpath",
+"property":"//strong[text()='Your Password']"
+},  
+ "fill_text_password":{
+"type":"xpath",
+"property":"//input[@id='Password']"
+}, 
+ "fill_text_confirm_password":{
+"type":"xpath",
+"property":"//input[@id='ConfirmPassword']"
+}, 
+"click_register_button":{
+"type":"xpath",
+"property":"//button[@id='register-button']"
+}
+}
