@@ -1,0 +1,50 @@
+{
+    "login_page_link":{
+        "type":"xpath",
+        "property":"//a[text()='Log in']"
+    },
+    "login_page_header":{
+        "type":"xpath",
+        "property":"//h1[text()='Welcome, Please Sign In!']"
+    },
+
+    "register_button" :{
+        "type":"xpath",
+        "property":"//button[text()='Register']"
+    },
+
+    "customer_email":{
+        "type":"xpath",
+        "property":"//input[@id='Email']"
+    },
+
+    "customer_password":{
+        "type":"xpath",
+        "property":"//input[@id='Password']"
+    },
+
+    "show_password":{
+        "type":"xpath",
+        "property":"//span[@class='password-eye']"
+    },
+    "hide_password":{
+        "type":"xpath",
+        "property":"//span[@class='password-eye password-eye-open']"
+    },
+
+    "rememberme_checkbox":{
+        "type":"xpath",
+        "property":"//label[text()='Remember me?']/preceding-sibling::input"
+    },
+
+    "forgot_password":{
+        "type":"xpath",
+        "property":"//a[text()='Forgot password?']"
+    },
+
+    "login_button":{
+        "type":"xpath",
+        "property":"//button[text()='Log in']"
+    }
+
+}

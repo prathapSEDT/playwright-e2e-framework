@@ -1,0 +1,21 @@
+{
+    "Electronic_page_Header":{
+      "type":"xpath",
+      "property":"//h1[text()='Electronics']"
+    },
+    "camera_and_phot0_link":{
+        "type":"xpath",
+        "property":"//a[text()=' Camera & photo ']"
+    },
+    "CellPhone_Link":{
+        "type":"xpath",
+        "property":"//a[text()=' Cell phones ']"
+    },
+
+    "Others_Link":{
+        "type":"xpath",
+        "property":"//a[text()=' Others ']"
+
+    }
+    
+}
