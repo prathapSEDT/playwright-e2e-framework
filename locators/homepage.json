@@ -1,0 +1,57 @@
+{
+"register":{
+      "type":"xpath",
+      "property":"//a[text()='Register']"
+    },
+
+"login":{
+      "type":"xpath",
+      "property":"//a[text()='Log in']"
+    },
+"wishlist":{
+      "type":"xpath",
+      "property":"//span[text()='Wishlist']"
+    },
+"Computers":{
+      "type":"xpath",
+      "property":"(//a[text()='Computers '])[1]"
+    },
+
+"Electronics":{
+      "type":"xpath",
+      "property":"(//a[text()='Electronics '])[1]"
+    },
+"Apparel":{
+      "type":"xpath",
+      "property":"(//a[text()='Apparel '])[1]"
+    },
+    "Digitaldownload":{
+      "type":"xpath",
+      "property":"//a[text()=' Digital downloads ']"
+    },
+
+     "Books":{
+      "type":"xpath",
+      "property":"(//a[text()='Books '])[1]"
+    },
+    "Jewelry ":{
+      "type":"xpath",
+      "property":"(//a[text()='Jewelry '])[1]"
+    },
+    "GiftCards ":{
+      "type":"xpath",
+      "property":"(//a[text()='Gift Cards  '])[1]"
+    },
+    "Electronics ":{
+      "type":"xpath",
+      "property":"(//a[text()=' Electronics'])[1]"
+    },
+    "Apparel ":{
+      "type":"xpath",
+      "property":"//a[text()=' Apparel ']"
+    },
+     "Digitaldownloads ":{
+      "type":"xpath",
+      "property":"//a[text()=' Digital downloads ']"
+    }
+}
