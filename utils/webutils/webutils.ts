@@ -155,7 +155,6 @@ return false
         }
     }
 
-<<<<<<< HEAD
 
 
 //Author : Shruthi
@@ -304,9 +303,7 @@ try {
 
 
     
-}
-=======
->>>>>>> f249b743271ac5e3abd7ed15549cf3661615e734
+
 
  /*
 Author: Rakesh
