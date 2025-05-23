@@ -8,7 +8,7 @@
       "type":"xpath",
       "property":"//a[text()='Log in']"
     },
-"wishlist":{
+"Wishlist":{
       "type":"xpath",
       "property":"//span[text()='Wishlist']"
     },
