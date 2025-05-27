@@ -1,7 +1,7 @@
 
 import {Download, expect, Locator, Page} from '@playwright/test'
 
-import configData from '/Users/vijay/Documents/playwright-e2e-framework/app-config/app-config.json'
+import configData from '../../app-config/app-config.json'
 import path from 'path'
 import * as fs from 'fs/promises';
 
@@ -155,7 +155,6 @@ return false
         }
     }
 
-<<<<<<< HEAD
 
 
 //Author : Shruthi
@@ -274,7 +273,6 @@ try {
 //Modified By :
 //Modified Date :
 //Purpose to modify : 
-//
  // This function checks if the input field's current value matches the provided test data.
  //It retries the check up to a fixed number of times to handle dynamic delays or slow rendering.
   // It uses a `try/catch` block to handle runtime errors and returns a `Promise<boolean>`
@@ -301,22 +299,6 @@ try {
     return false;
   }
 }
-
-
-    
-}
-=======
->>>>>>> f249b743271ac5e3abd7ed15549cf3661615e734
-
- /*
-Author: Rakesh
-Date: 22 May 2025
-Modified by:
-Modified Date:
-Purpose to modify:
-*/
-
-
     /*
     Author: Manikanta Srinivas
     Date: 22 May 2025
