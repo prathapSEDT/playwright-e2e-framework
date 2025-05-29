@@ -13,12 +13,12 @@
   },
 
   "click_radio_button_male": {
-    "type": "getByRole",
-    "property": "('radio',{id:'gender-male',exact:true})"
+    "type": "xpath",
+    "property": "//input[@id='gender-male']"
   },
   "click_radio_button_female": {
-    "type": "getByRole",
-    "property": "('radio',{id:'gender-female',exact:true})"
+    "type": "xpath",
+    "property": "//input[@id='gender-female']"
   },
 
   "fill_text_firstname": {

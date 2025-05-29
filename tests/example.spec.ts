@@ -1,18 +1,11 @@
 import { test, expect } from '@playwright/test';
+import WebLib from '../utils/webutils/webutils';
+import Homepage from '../capabilities/homepage';
 
 test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  const webUtil = new WebLib(page)
+  await webUtil.launchApplication()
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  const homePage = new Homepage(page)
+  await homePage.navigateToRegistrationPage()
 });
