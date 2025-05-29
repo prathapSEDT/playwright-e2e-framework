@@ -25,14 +25,13 @@ export default class WebLib {
     This method calls waitForWebElement in turn to check it exists before accepting a value
     */
 
-    async fillData(webElement: Locator, inputdata: string): Promise<boolean> {
-
-    
+    async fillData(webElement: any, inputdata: string): Promise<boolean> {
         let actionStatus: boolean = false
         try {
-            await this.waitForWebElement(webElement)
-            await webElement.clear()
-            await webElement.fill(inputdata)
+            let element = await this.getLocator(webElement)
+            await this.waitForWebElement(element)
+            await element.clear()
+            await element.fill(inputdata)
             actionStatus = true
         } catch (error) {
             actionStatus = false
@@ -47,9 +46,10 @@ Modified Date:
 Purpose to modify:
 */
 
-    async getTextFromElement(element: any): Promise<any> {
+    async getTextFromElement(webElement: any): Promise<any> {
         try {
-            const text = await element.getTextFromElement();
+            let element = await this.getLocator(webElement)
+            const text = await element.innerText()
             console.log("Enter the text :", text);
             return text;
         } catch (error) {
@@ -57,19 +57,10 @@ Purpose to modify:
             return false
         }
     }
-    async clickElementAndFill(elementProperty: any, elementName: any, txtToFill: any) {
+    async selectDropDown(webElement: any, option: string) {
         try {
-            await elementProperty.click();
-            await elementProperty.setValue(txtToFill);
-            console.log(`Filled ${elementName} with: ${txtToFill}`);
-        } catch (error) {
-            console.error(error)
-            return false
-        }
-    }
-    async selectDropDown(elementProperty: any, option: string) {
-        try {
-            await elementProperty.selectByVisibleText(option);
+            let element: Locator = await this.getLocator(webElement)
+            await element.selectOption(option)
             console.log(`Dropdown option selected: ${option}`);
         } catch (error) {
             console.error(error)
@@ -122,10 +113,10 @@ Purpose to modify:
     // It handles errors using a `try/catch` block and returns a `Promise<boolean>`
     //to indicate whether the file upload succeeded.
 
-    async fileUpload(element: Locator, fileName: string): Promise<boolean> {
+    async fileUpload(webelement: any, fileName: string): Promise<boolean> {
         try {
             const filePath = path.resolve(__dirname, 'uploads', fileName);
-
+            let element: Locator = await this.getLocator(webelement)
             // Upload the file 
             await element.setInputFiles(filePath);
             console.log(`File uploaded successfull:${filePath}`);
@@ -146,11 +137,12 @@ Purpose to modify:
     //Uses download.saveAs() to save the file to the downloads/ folder with the specified fileName.
     // Catches and logs errors using a try/catch block.
     //Returns a Promise<boolean> so your test can conditionally react to success or failure.
-    async fileDownload(page: Page, element: Locator, fileName: string): Promise<boolean> {
+    async fileDownload(webElement: any, fileName: string): Promise<boolean> {
         try {
+            let element: Locator = await this.getLocator(webElement)
             //file download
             const [download]: [Download, void] = await Promise.all([
-                page.waitForEvent('download'), // Wait for the download event
+                this.page.waitForEvent('download'), // Wait for the download event
                 element.click(),      // Click the download link/button
             ]);
 
@@ -176,10 +168,10 @@ Purpose to modify:
     //It retries the check up to a fixed number of times to handle dynamic delays or slow rendering.
     // It uses a `try/catch` block to handle runtime errors and returns a `Promise<boolean>`
     //indicating whether the text was successfully verified in the input field.
-    async checkTextEntered(element: any, testData: any, textDesc: any): Promise<boolean> {
+    async checkTextEntered(webElement: any, testData: any, textDesc: any): Promise<boolean> {
         const retryLimit = 5; // Limit the number of retries to avoid infinite loops
         let attempts = 0;
-
+        let element: Locator = await this.getLocator(webElement)
         try {
             while (attempts < retryLimit) {
                 const enteredText = await element.inputValue();
@@ -258,7 +250,7 @@ Purpose to modify:
             console.error(`Failed to launch application\nError:${error}`)
         }
     }
-    protected async getLocator(locatorConfig: string): Promise<Locator> {
+    protected async getLocator(locatorConfig: any): Promise<Locator> {
         switch (String(locatorConfig['type']).toLowerCase()) {
             case 'xpath':
                 return this.page.locator(`xpath=${locatorConfig["property"]}`);
@@ -283,6 +275,7 @@ Purpose to modify:
 
     protected async clickElement(locatorConfig: any) {
         let locator: Locator = await this.getLocator(locatorConfig)
+        await this.waitForWebElement(locatorConfig)
         try {
             await locator.click()
         } catch (error) {
