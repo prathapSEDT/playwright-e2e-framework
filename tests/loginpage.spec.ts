@@ -11,12 +11,12 @@ test("login page",async({page})=>{
     await homePage.navigateToLoginPage()
 
     const loginPage = new Loginpage(page)
-    await loginPage.loginCredentials(page,"gmsrinivas1544@gmail.com","12345678")
-    await loginPage.rememberMe(page)
-    await loginPage.forgotPassword(page)
+    await loginPage.loginCredentials("gmsrinivas1544@gmail.com","12345678")
+    await loginPage.rememberMe()
+    await loginPage.forgotPassword()
     await page.pause()
-    await loginPage.showPassword(page)
-    await loginPage.hidePassword(page)
-    await loginPage.login(page)
+    await loginPage.showPassword()
+    await loginPage.hidePassword()
+    await loginPage.login()
 
 })

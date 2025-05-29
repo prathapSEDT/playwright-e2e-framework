@@ -3,13 +3,13 @@ import loginPageLocators from '../locators/login-page-locators.json'
 import WebLib from '../utils/webutils/webutils'
 
 export default class Loginpage extends WebLib {
-    async loginCredentials(page : Page, email : string, password : string)
+    async loginCredentials(email : string, password :string)
     {
         try
         {
-            const emailLocator = page.locator(loginPageLocators['customer_email'].property)
+            const emailLocator = this.page.locator(loginPageLocators['customer_email'].property)
             await this.fillData(emailLocator,email)
-            const passwordLocator = page.locator(loginPageLocators['customer_password'].property)
+            const passwordLocator = this.page.locator(loginPageLocators['customer_password'].property)
             await this.fillData(passwordLocator,password)
         }
         catch(error)
@@ -17,11 +17,11 @@ export default class Loginpage extends WebLib {
             console.error("Unable to fill the credentials",error)
         }
     }
-    async rememberMe(page:Page)
+    async rememberMe()
     {
         try
         {
-            const rememberMeLocator = page.locator(loginPageLocators['rememberme_checkbox'].property)
+            const rememberMeLocator = this.page.locator(loginPageLocators['rememberme_checkbox'].property)
             await rememberMeLocator.check()
         }
         catch(error)
@@ -29,11 +29,11 @@ export default class Loginpage extends WebLib {
             console.error("unable to check rememberme checkbox")
         }
     }
-    async login(page:Page)
+    async login()
     {
         try
         {
-            const loginButtonLocator = page.locator(loginPageLocators['login_button'].property)
+            const loginButtonLocator = this.page.locator(loginPageLocators['login_button'].property)
             await loginButtonLocator.click()
         }
         catch(error)
@@ -41,11 +41,11 @@ export default class Loginpage extends WebLib {
             console.error("unable to login",error)
         }
     }
-    async showPassword(page : Page)
+    async showPassword()
     {
         try
         {
-            const showButtonLocator = page.locator(loginPageLocators['show_password'].property)
+            const showButtonLocator = this.page.locator(loginPageLocators['show_password'].property)
             await showButtonLocator.click()
         }
         catch(error)
@@ -53,11 +53,11 @@ export default class Loginpage extends WebLib {
             console.error("Unable to click on show password button",error)
         }
     }
-    async hidePassword(page:Page)
+    async hidePassword()
     {
         try
         {
-            const hideButtonLocator = page.locator(loginPageLocators['hide_password'].property)
+            const hideButtonLocator = this.page.locator(loginPageLocators['hide_password'].property)
             await hideButtonLocator.click()
         }
         catch(error)
@@ -65,10 +65,10 @@ export default class Loginpage extends WebLib {
             console.error("Unable to click on hide password button",error)
         }
     }
-    async forgotPassword(page:Page){
+    async forgotPassword(){
         try 
         {
-            const forgotPasswordLocator = page.locator(loginPageLocators['forgot_password'].property)
+            const forgotPasswordLocator = this.page.locator(loginPageLocators['forgot_password'].property)
             await expect(forgotPasswordLocator).toHaveText("Forgot password?")
             await forgotPasswordLocator.click()
         }
