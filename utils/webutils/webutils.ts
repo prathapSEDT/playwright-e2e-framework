@@ -55,16 +55,6 @@ Purpose to modify:
             return false
         }
     }
-    async clickElementAndFill(elementProperty: any, elementName: any, txtToFill: any) {
-        try {
-            await elementProperty.click();
-            await elementProperty.setValue(txtToFill);
-            console.log(`Filled ${elementName} with: ${txtToFill}`);
-        } catch (error) {
-            console.error(error)
-            return false
-        }
-    }
     async selectDropDown(elementProperty: any, option: string) {
         try {
             await elementProperty.selectByVisibleText(option);
@@ -281,6 +271,7 @@ Purpose to modify:
 
     protected async clickElement(locatorConfig: any) {
         let locator: Locator = await this.getLocator(locatorConfig)
+        await this.waitForWebElement(locatorConfig)
         try {
             await locator.click()
         } catch (error) {
